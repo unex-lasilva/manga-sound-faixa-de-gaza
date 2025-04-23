@@ -1,6 +1,6 @@
 package br.com.mangarosa;
 
-import br.com.mangarosa.collections.*;
+import br.com.mangarosa.playlists.Playlist;
 
 public class MangaSoundApplication {
     public static void main(String[] args) {

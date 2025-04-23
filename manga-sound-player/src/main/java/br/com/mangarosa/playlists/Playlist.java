@@ -1,4 +1,4 @@
-package br.com.mangarosa.collections;
+package br.com.mangarosa.playlists;
 
 public class Playlist {
     private PlaylistNode head;
