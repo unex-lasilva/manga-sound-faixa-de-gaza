@@ -1,3 +1,4 @@
+package br.com.mangarosa.core;
 
 public class Music {
     private String name;

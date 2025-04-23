@@ -1,3 +1,4 @@
+package br.com.mangarosa.core;
 
 import java.io.*;
 import java.nio.file.*;
