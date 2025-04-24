@@ -15,7 +15,7 @@ Um par de fone de ouvido, a sua lista de reprodução favorita e pronto: você e
 |----------------------|---------------|------------------|-------------|-------------|---------------|
 | **Marco Antônio**    |               |                  |             |             |               |
 | **Gustavo Oliveira** |               |                  |             |             |               |
-| **Kaio Santos**      |               |                  |             |             |               |
+| **Kaio Santos**      |     10        |       10         |    10       |     10      |      10       |
 | **Pedro Tigre**      |               |                  |             |             |               |
 | **Robert Araujo**    |               |                  |             |             |               |
 | **Nota**             | **  **        | **  **           | ** **       | ****        | ****          |
