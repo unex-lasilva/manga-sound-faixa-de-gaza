@@ -18,4 +18,4 @@ Um par de fone de ouvido, a sua lista de reprodução favorita e pronto: você e
 | **Kaio Santos**      |     10        |       10         |    10       |     10      |      10       |
 | **Pedro Tigre**      |     10        |       10         |    10       |     10      |      10       |
 | **Robert Araujo**    |     10        |       10         |    10       |     10      |      10       |
-| **Nota**             | **  **        | **  **           | ** **       | ****        | ****          |
+| **Nota**             | 50            | 50               | 50          | 50          | 50            |
