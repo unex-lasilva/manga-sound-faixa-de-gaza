@@ -10,3 +10,12 @@ Um par de fone de ouvido, a sua lista de reprodução favorita e pronto: você e
 # Equipe: <nome-da-equipe>
 1. <Nome de fulano>
 2. <Nome de fulana>
+
+| Integrante         | Marco Antônio | Gustavo Oliveira | Kaio Santos | Pedro Tigre | Robert Araujo |
+|----------------------|---------------|------------------|-------------|-------------|---------------|
+| **Marco Antônio**    |               |                  |             |             |               |
+| **Gustavo Oliveira** |               |                  |             |             |               |
+| **Kaio Santos**      |               |                  |             |             |               |
+| **Pedro Tigre**      |               |                  |             |             |               |
+| **Robert Araujo**    |               |                  |             |             |               |
+| **Nota**             | **  **        | **  **           | ** **       | ****        | ****          |
