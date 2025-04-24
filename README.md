@@ -17,5 +17,5 @@ Um par de fone de ouvido, a sua lista de reprodução favorita e pronto: você e
 | **Gustavo Oliveira** |     10        |       10         |    10       |     10      |      10       |
 | **Kaio Santos**      |     10        |       10         |    10       |     10      |      10       |
 | **Pedro Tigre**      |               |                  |             |             |               |
-| **Robert Araujo**    |               |                  |             |             |               |
+| **Robert Araujo**    |     10        |      10          |    10       |    10       |   10          |
 | **Nota**             | **  **        | **  **           | ** **       | ****        | ****          |
