@@ -18,7 +18,7 @@ public class MusicRepository {
         }
     }
 
-    public void addMusica(Scanner scanner) {
+    public void addMusic(Scanner scanner) {
         System.out.print("Informe o caminho do arquivo .wav: ");
         String path = scanner.nextLine().trim();
         File file = new File(path);

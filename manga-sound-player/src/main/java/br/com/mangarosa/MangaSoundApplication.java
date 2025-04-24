@@ -27,18 +27,16 @@ public class MangaSoundApplication {
 
             int option = InputHelper.readInt(scanner);
             switch (option){
-                case 1 -> repository.addMusica(scanner);
+                case 1 -> repository.addMusic(scanner);
                 case 2 -> playlistManager.createPlaylist(scanner);
                 case 3 -> playlistManager.editPlaylist(scanner);
                 case 4 -> playlistManager.executePlaylist(scanner);
                 case 5 -> {
-                    System.out.println("saindo do manga sound");
+                    System.out.println("Saindo do manga sound");
                     return;
                 }
-                default -> System.out.println("opção inválida");
+                default -> System.out.println("Opção inválida");
             }
         }
-
-
     }
 }
