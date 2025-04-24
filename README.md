@@ -14,7 +14,7 @@ Um par de fone de ouvido, a sua lista de reprodução favorita e pronto: você e
 | Integrante         | Marco Antônio | Gustavo Oliveira | Kaio Santos | Pedro Tigre | Robert Araujo |
 |----------------------|---------------|------------------|-------------|-------------|---------------|
 | **Marco Antônio**    |               |                  |             |             |               |
-| **Gustavo Oliveira** |               |                  |             |             |               |
+| **Gustavo Oliveira** |     10        |       10         |    10       |     10      |      10       |
 | **Kaio Santos**      |     10        |       10         |    10       |     10      |      10       |
 | **Pedro Tigre**      |               |                  |             |             |               |
 | **Robert Araujo**    |               |                  |             |             |               |
