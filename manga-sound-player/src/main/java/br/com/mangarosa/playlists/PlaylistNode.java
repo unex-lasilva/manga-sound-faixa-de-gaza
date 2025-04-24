@@ -1,31 +1,34 @@
 package br.com.mangarosa.playlists;
 
+
+import br.com.mangarosa.core.Music;
+
 public class PlaylistNode {
-    private Music music;
-    private PlaylistNode next;
-    private PlaylistNode prev;
+    private Music musica;
+    private PlaylistNode anterior;
+    private PlaylistNode proximo;
 
-    public PlaylistNode(Music music) {
-        this.music = music;
+    public PlaylistNode(Music musica) {
+        this.musica = musica;
     }
 
-    public Music getMusic() {
-        return music;
+    public Music getMusica() {
+        return musica;
     }
 
-    public PlaylistNode getNext() {
-        return next;
+    public PlaylistNode getAnterior() {
+        return anterior;
     }
 
-    public void setNext(PlaylistNode next) {
-        this.next = next;
+    public void setAnterior(PlaylistNode anterior) {
+        this.anterior = anterior;
     }
 
-    public PlaylistNode getPrev() {
-        return prev;
+    public PlaylistNode getProximo() {
+        return proximo;
     }
 
-    public void setPrev(PlaylistNode prev) {
-        this.prev = prev;
+    public void setProximo(PlaylistNode proximo) {
+        this.proximo = proximo;
     }
 }

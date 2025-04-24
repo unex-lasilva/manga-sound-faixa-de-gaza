@@ -1,64 +1,53 @@
 package br.com.mangarosa.core;
 
-import java.io.*;
+import br.com.mangarosa.util.InputHelper;
+
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class MusicRepository {
-    private static final String REPOSITORY_FOLDER = "repositorio";
-    private List<Music> musicList;
+    private final Map<String, Music> musics = new HashMap<>();
+    private final String repositoryPath = "repository";
 
     public MusicRepository() {
-        musicList = new ArrayList<>();
-        File folder = new File(REPOSITORY_FOLDER);
-        if (!folder.exists()) {
-            folder.mkdirs();
-        }
-        loadMusicList();
-    }
-
-    private void loadMusicList() {
-        musicList.clear();
-        File folder = new File(REPOSITORY_FOLDER);
-        File[] files = folder.listFiles((dir, name) -> name.toLowerCase().endsWith(".wav"));
-        if (files != null) {
-            for (File file : files) {
-                musicList.add(new Music(file.getName(), file.getAbsolutePath()));
-            }
+        File pasta = new File(repositoryPath);
+        if (!pasta.exists()) {
+            pasta.mkdirs();
         }
     }
 
-    public boolean addMusic(String sourcePath) {
-        File sourceFile = new File(sourcePath);
-        if (!sourceFile.exists() || !sourceFile.getName().toLowerCase().endsWith(".wav")) {
-            System.out.println("Arquivo inválido ou inexistente.");
-            return false;
-        }
+    public void addMusica(Scanner scanner) {
+        System.out.print("Informe o caminho do arquivo .wav: ");
+        String path = scanner.nextLine().trim();
+        File file = new File(path);
 
-        File destFile = new File(REPOSITORY_FOLDER, sourceFile.getName());
-        try {
-            Files.copy(sourceFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            musicList.add(new Music(destFile.getName(), destFile.getAbsolutePath()));
-            System.out.println("Música adicionada com sucesso.");
-            return true;
-        } catch (IOException e) {
-            System.out.println("Erro ao copiar o arquivo: " + e.getMessage());
-            return false;
-        }
-    }
-
-    public void listMusics() {
-        if (musicList.isEmpty()) {
-            System.out.println("Nenhuma música disponível.");
+        if (!file.exists() || !file.getName().endsWith(".wav")) {
+            System.out.println("Arquivo inválido.");
             return;
         }
-        for (int i = 0; i < musicList.size(); i++) {
-            System.out.println((i + 1) + ". " + musicList.get(i));
+
+        Path destino = Paths.get(repositoryPath, file.getName());
+        try {
+            Files.copy(file.toPath(), destino, StandardCopyOption.REPLACE_EXISTING);
+            Music novaMusica = new Music(file.getName(), destino.toString());
+            musics.put(novaMusica.getName(), novaMusica);
+            System.out.println("Música adicionada com sucesso!");
+        } catch (IOException e) {
+            System.out.println("Erro ao copiar o arquivo: " + e.getMessage());
         }
     }
 
-    public List<Music> getMusicList() {
-        return musicList;
+    public Collection<Music> listMusics() {
+        return musics.values();
+    }
+
+    public Music getMusic(String nome) {
+        return musics.get(nome);
+    }
+
+    public boolean excuteMusic(String nome) {
+        return musics.containsKey(nome);
     }
 }

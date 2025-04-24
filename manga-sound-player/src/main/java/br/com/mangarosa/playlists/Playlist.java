@@ -1,74 +1,66 @@
 package br.com.mangarosa.playlists;
 
+
+import br.com.mangarosa.core.Music;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Playlist {
-    private PlaylistNode head;
-    private PlaylistNode tail;
+    private String name;
+    private PlaylistNode start;
+    private int size;
 
-    public void adicionarMusica(Music music) {
-        PlaylistNode novo = new PlaylistNode(music);
-        if (head == null) {
-            head = tail = novo;
-        } else {
-            tail.setNext(novo);
-            novo.setPrev(tail);
-            tail = novo;
-        }
+    public Playlist(String nome) {
+        this.name = nome;
     }
 
-    public void listarMusicas() {
-        PlaylistNode atual = head;
+    public void adicionarMusica(Music musica) {
+        PlaylistNode nova = new PlaylistNode(musica);
+        if (start == null) {
+            start = nova;
+        } else {
+            PlaylistNode atual = start;
+            while (atual.getProximo() != null) {
+                atual = atual.getProximo();
+            }
+            atual.setProximo(nova);
+            nova.setAnterior(atual);
+        }
+        size++;
+    }
+
+    public List<PlaylistNode> listarMusicas() {
+        List<PlaylistNode> lista = new ArrayList<>();
+        PlaylistNode atual = start;
         while (atual != null) {
-            System.out.println(atual.getMusic());
-            atual = atual.getNext();
+            lista.add(atual);
+            atual = atual.getProximo();
+        }
+        return lista;
+    }
+
+    public void moverMusica(int atual, int novaPos) {
+        if (atual < 0 || atual >= size || novaPos < 0 || novaPos >= size || atual == novaPos) return;
+
+        List<PlaylistNode> nodes = listarMusicas();
+        PlaylistNode removida = nodes.remove(atual);
+        nodes.add(novaPos, removida);
+
+        start = null;
+        size = 0;
+        for (PlaylistNode node : nodes) {
+            node.setAnterior(null);
+            node.setProximo(null);
+            adicionarMusica(node.getMusica());
         }
     }
 
-    public void moverMusica(int de, int para) {
-        if (de == para || head == null) return;
+    public PlaylistNode getInicio() {
+        return start;
+    }
 
-        PlaylistNode atual = head;
-        int pos = 0;
-
-        // Encontrar o nó a ser movido
-        while (atual != null && pos < de) {
-            atual = atual.getNext();
-            pos++;
-        }
-
-        if (atual == null) return;
-
-        // Remover o nó
-        PlaylistNode anterior = atual.getPrev();
-        PlaylistNode proximo = atual.getNext();
-
-        if (anterior != null) anterior.setNext(proximo);
-        else head = proximo;
-
-        if (proximo != null) proximo.setPrev(anterior);
-        else tail = anterior;
-
-        // Reposicionar
-        PlaylistNode destino = head;
-        int i = 0;
-        while (destino != null && i < para) {
-            destino = destino.getNext();
-            i++;
-        }
-
-        if (destino == null) {
-            // Insere no final
-            tail.setNext(atual);
-            atual.setPrev(tail);
-            atual.setNext(null);
-            tail = atual;
-        } else {
-            PlaylistNode destinoAnterior = destino.getPrev();
-            atual.setNext(destino);
-            atual.setPrev(destinoAnterior);
-
-            destino.setPrev(atual);
-            if (destinoAnterior != null) destinoAnterior.setNext(atual);
-            else head = atual;
-        }
+    public String getNome() {
+        return name;
     }
 }
